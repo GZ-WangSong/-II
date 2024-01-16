@@ -1,0 +1,39 @@
+14:22:44 **** Build of configuration Debug for project ps920106840429 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_920106840429/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'maArms':
+../src/helloworld.c:152:17: warning: unused variable 'rflag' [-Wunused-variable]
+  int Lflag = 0, rflag = 0;
+                 ^~~~~
+../src/helloworld.c:152:6: warning: unused variable 'Lflag' [-Wunused-variable]
+  int Lflag = 0, rflag = 0;
+      ^~~~~
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:538:12: warning: unused variable 'flag1' [-Wunused-variable]
+  u32 flag, flag1;  //变量flag用于记录SW0~SW7按键按下信息；变量flag1用于记录BTN8、BTN9按键按下信息
+            ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_920106840429/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: ps920106840429.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_920106840429/ps7_cortexa9_0/lib -o "ps920106840429.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: ps920106840429.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size ps920106840429.elf  |tee "ps920106840429.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25344	   1152	  22680	  49176	   c018	ps920106840429.elf
+'Finished building: ps920106840429.elf.size'
+' '
+
+14:22:45 Build Finished (took 1s.360ms)
+
